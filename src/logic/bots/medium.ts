@@ -1,13 +1,32 @@
-import { getBlanks, invertPlayer, type Field } from "../game";
+import { getBlanks, invertPlayer, Field, won } from "../game";
 import { randomMove, winningMove } from "./bot";
 
-// the medium bot plays a wiining move, if it can
-// or blocks the opponent from winning
-// or plays the center field if it can
-// otherwise it plays a random move
 export function mediumMove(board: Field[], own: Field): number {
-  return -1
+  // Check if the bot can win
+  const winningMoveIndex = winningMove(board, own);
+  if (winningMoveIndex !== -1) {
+    return winningMoveIndex;
+  }
+
+  // Check if the opponent can win and block them
+  const opponent = invertPlayer(own);
+  const blockingMoveIndex = winningMove(board, opponent);
+  if (blockingMoveIndex !== -1) {
+    return blockingMoveIndex;
+  }
+
+  // Check if the center field is available and play there
+  const centerIndex = 4;
+  if (board[centerIndex] === Field.EMPTY) {
+    return centerIndex;
+  }
+
+  // Otherwise, make a random move
+  const blanks = getBlanks(board);
+  return randomMove(blanks.length);
 }
+
+
 
 // this bot just tries to block a win
 // otherwise it plays a random move
