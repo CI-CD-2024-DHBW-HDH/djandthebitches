@@ -1,3 +1,5 @@
+export {};
+
 module.exports = {
   testEnvironment: 'node',
   testMatch: ['tests/game.test.ts'],
