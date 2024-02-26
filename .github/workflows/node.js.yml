@@ -31,4 +31,4 @@ jobs:
     - name: ESLint
       run: npm run lint # Führen Sie ESLint aus
     - name: Prettier Check
-      run: npx run format . # Überprüfen Sie den Code-Stil mit Prettier
+      run: npx prettier --check . # Überprüfen Sie den Code-Stil mit Prettier
