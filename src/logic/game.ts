@@ -44,7 +44,7 @@ export class Game {
   constructor(
     player: Player = new Player(Field.PLAYER1),
     enemy: Player = new Player(Field.PLAYER2),
-    mode: Mode = Mode.EASY
+    mode: Mode = Mode.EASY,
   ) {
     player.score = 0;
     enemy.score = 0;
@@ -136,7 +136,6 @@ export function won(board: Field[]): Field {
 
   return Field.EMPTY; // No winner yet
 }
-
 
 export function newBoard(): Field[] {
   const board = new Array<Field>(9);

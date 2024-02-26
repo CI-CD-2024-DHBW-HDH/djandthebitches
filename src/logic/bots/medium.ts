@@ -26,8 +26,6 @@ export function mediumMove(board: Field[], own: Field): number {
   return randomMove(blanks.length);
 }
 
-
-
 // this bot just tries to block a win
 // otherwise it plays a random move
 export function pettyMove(board: Field[], own: Field): number {

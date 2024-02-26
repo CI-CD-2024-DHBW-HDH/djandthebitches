@@ -26,4 +26,3 @@ export function easyMove(board: Field[], own: Field): number {
   const randomIndex = randomMove(bounds); // Get a random index based on the number of empty spots
   return emptySpots[randomIndex]; // Return the actual board index of the random empty spot
 }
-
