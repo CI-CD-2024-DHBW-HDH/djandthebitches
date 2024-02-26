@@ -1,10 +1,4 @@
-import {
-  Field,
-  newBoard,
-  getBlanks,
-  invertPlayer,
-  isPlayer,
-} from "./game";
+import { Field, newBoard, getBlanks, invertPlayer, isPlayer } from "./game";
 
 describe("newBoard", () => {
   it("should return a new empty board", () => {
