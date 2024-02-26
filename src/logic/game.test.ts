@@ -1,11 +1,5 @@
 import {
-  Game,
-  Player,
-  Mode,
   Field,
-  Outcome,
-  isFull,
-  won,
   newBoard,
   getBlanks,
   invertPlayer,
