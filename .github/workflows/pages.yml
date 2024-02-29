@@ -36,5 +36,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: "ghcr.io/CI-CD-2024-DHBW-HDH/djandthebitches:1"
+          tags: "ghcr.io/ci-cd-2024-dhbw-hdh/djandthebitches:1"
           labels: ${{ steps.meta.outputs.labels }}
