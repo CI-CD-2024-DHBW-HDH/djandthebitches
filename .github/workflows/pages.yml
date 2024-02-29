@@ -25,6 +25,8 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
       - name: List directory contents
         run: ls -la
       - name: Log in to the Container registry
