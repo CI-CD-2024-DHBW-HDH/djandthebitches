@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "4"
+  creationTimestamp: "2024-02-29T12:26:06Z"
+  generation: 7
+  labels:
+    app: my-deployment
+  name: my-deployment
+  namespace: default
+  resourceVersion: "11947"
+  uid: a78bf894-1848-4497-9966-833c169d2d9b
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: my-deployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-deployment
+    spec:
+      containers:
+      - image: ghcr.io/ci-cd-2024-dhbw-hdh/djandthebitches:1
+        imagePullPolicy: IfNotPresent
+        name: djandthebitches
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: regcred
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 3
+  conditions:
+  - lastTransitionTime: "2024-02-29T13:07:23Z"
+    lastUpdateTime: "2024-02-29T13:07:23Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-02-29T12:26:06Z"
+    lastUpdateTime: "2024-02-29T14:04:19Z"
+    message: ReplicaSet "my-deployment-fd6766dd5" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 7
+  readyReplicas: 3
+  replicas: 3
+  updatedReplicas: 3
