@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ui:
+    build: .
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+  nginx:
+    image: nginx:alpine
+    volumes:
+     - ./conf.d:/etc/nginx/conf.d
+    ports:
+    - "80:80"
+    depends_on:
+      - ui
