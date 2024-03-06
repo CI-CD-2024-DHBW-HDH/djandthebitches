@@ -3,31 +3,27 @@ name: Deploy to Kubernetes Cluster
 on:
   push:
     branches:
-      - main # oder Ihren Hauptbranch
+      - main # Oder den Branch, den Sie verwenden möchten
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Set KUBECONFIG Environment Variable
-      run: echo "KUBECONFIG=${{ secrets.KUBECONFIG_PATH }}" >> $GITHUB_ENV
+      - uses: actions/checkout@v2
 
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Set up Kubectl
+        uses: azure/setup-kubectl@v1
 
-    - name: Set up Kubectl
-      uses: azure/setup-kubectl@v1
-      with:
-        version: 'v1.20.0' # Nutzen Sie die gewünschte Kubectl-Version
+      - name: Set up Kubernetes configuration
+        uses: azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+          context: do-fra1-k8s-1-29-1-do-0-fra1-1709714425576
 
-    - name: Set up DigitalOcean kubeconfig
-      uses: digitalocean/action-doctl@v2
-      with:
-        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-        kubeconfig: ${{ secrets.KUBECONFIG }}
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+      # Deployment
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f deployment.yml
+          kubectl apply -f service.yml
 
