@@ -18,7 +18,7 @@ jobs:
         uses: azure/k8s-set-context@v1
         with:
           method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
           context: do-fra1-k8s-1-29-1-do-0-fra1-1709714425576
 
       # Deployment
