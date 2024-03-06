@@ -12,7 +12,7 @@ spec:
   ipFamilyPolicy: SingleStack
   ports:
   - name: 8080-80
-    nodePort: 31852
+    nodePort: 31853
     port: 8080
     protocol: TCP
     targetPort: 80
