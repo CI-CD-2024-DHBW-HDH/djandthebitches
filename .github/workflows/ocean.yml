@@ -26,6 +26,6 @@ jobs:
       # Deployment
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f deployment.yaml --namespace=djandthebitches
-          kubectl apply -f service.yaml --namespace=djandthebitches
+          kubectl apply -f deployment.yaml --namespace=default
+          kubectl apply -f service.yaml --namespace=default
 
