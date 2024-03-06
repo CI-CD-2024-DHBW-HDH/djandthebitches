@@ -22,7 +22,8 @@ jobs:
 
       - name: Create namespace
         run: kubectl create namespace djandthebitches --dry-run=client -o yaml | kubectl apply -f -
-
+      - name: Delete existing secret (if exists)
+        run: kubectl delete secret regcred --ignore-not-found=true
       # Deployment
       - name: Deploy to Kubernetes
         run: |
