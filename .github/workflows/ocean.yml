@@ -19,7 +19,9 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBECONFIG }}
-          context: do-fra1-k8s-1-29-1-do-0-fra1-1709714425576
+
+      - name: Create namespace
+        run: kubectl create namespace djandthebitches --dry-run=client -o yaml | kubectl apply -f -
 
       # Deployment
       - name: Deploy to Kubernetes
