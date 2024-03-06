@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Set KUBECONFIG Environment Variable
+      run: echo "KUBECONFIG=${{ secrets.KUBECONFIG_PATH }}" >> $GITHUB_ENV
+
     - name: Checkout code
       uses: actions/checkout@v2
 
