@@ -9,8 +9,6 @@ metadata:
     app: my-deployment
   name: my-deployment
   namespace: default
-  resourceVersion: "11947"
-  uid: a78bf894-1848-4497-9966-833c169d2d9b
 spec:
   progressDeadlineSeconds: 600
   replicas: 3
@@ -25,7 +23,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: my-deployment
     spec:
