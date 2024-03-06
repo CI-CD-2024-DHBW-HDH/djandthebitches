@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2024-02-29T13:03:27Z"
   labels:
     app: my-svc
   name: my-svc
   namespace: default
-  resourceVersion: "7064"
-  uid: afdf03be-6a8f-411e-aa57-e799de2336a3
 spec:
   clusterIP: 10.100.35.31
   clusterIPs:
