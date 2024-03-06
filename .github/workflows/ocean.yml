@@ -26,7 +26,7 @@ jobs:
       # Deployment
       - name: Deploy to Kubernetes
         run: |
-          kubectl create secret docker-registry regcred --docker-server=ghcr.io --docker-username=MichaelBehringer --docker-password=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 --docker-email=michabehringer@gmail.com
+          kubectl create secret docker-registry regcred --docker-server=ghcr.io --docker-username=MichaelBehringer --docker-password=${{ secrets.GITHUB }} --docker-email=michabehringer@gmail.com
           kubectl apply -f deployment.yaml --namespace=djandthebitches
           kubectl apply -f service.yaml --namespace=djandthebitches
 
