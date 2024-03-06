@@ -1,3 +1,4 @@
+name: OzeanVonDenGamers
 on:
   push:
     branches:
