@@ -6,9 +6,6 @@ metadata:
   name: my-svc
   namespace: default
 spec:
-  clusterIP: 10.100.35.31
-  clusterIPs:
-  - 10.100.35.31
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
