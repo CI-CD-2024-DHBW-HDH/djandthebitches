@@ -26,9 +26,9 @@ spec:
         app: my-deployment
     spec:
       containers:
-      - image: ghcr.io/ci-cd-2024-dhbw-hdh/djandthebitches:1
+      - image: ghcr.io/ci-cd-2024-dhbw-hdh/pasado:main
         imagePullPolicy: IfNotPresent
-        name: djandthebitches
+        name: pasado
         ports:
         - containerPort: 80
           protocol: TCP
